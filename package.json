@@ -1,0 +1,31 @@
+{
+  "name": "gas-google-drive-to-slack",
+  "version": "0.1.0",
+  "author": "Yuichi Tanikawa <u1.tanikawa@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/uu1t/gas-google-drive-to-slack/issues"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.3.3",
+    "@babel/preset-env": "^7.3.1",
+    "@types/google-apps-script": "0.0.37",
+    "babel-loader": "^8.0.5",
+    "uglifyjs-webpack-plugin": "^2.1.1",
+    "webpack": "^4.29.4",
+    "webpack-cli": "^3.2.3"
+  },
+  "homepage": "https://github.com/uu1t/gas-google-drive-to-slack",
+  "keywords": [],
+  "license": "MIT",
+  "main": "",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uu1t/gas-google-drive-to-slack.git"
+  },
+  "scripts": {
+    "build": "webpack",
+    "test": "exit 1"
+  }
+}
