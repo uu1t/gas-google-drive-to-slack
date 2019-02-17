@@ -9,6 +9,7 @@
   "devDependencies": {
     "@babel/core": "^7.3.3",
     "@babel/preset-env": "^7.3.1",
+    "@google/clasp": "^2.0.1",
     "@types/google-apps-script": "0.0.37",
     "babel-loader": "^8.0.5",
     "uglifyjs-webpack-plugin": "^2.1.1",
