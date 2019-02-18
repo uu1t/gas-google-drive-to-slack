@@ -27,6 +27,8 @@
   },
   "scripts": {
     "build": "webpack",
+    "predeploy": "npm run build",
+    "deploy": "clasp push",
     "test": "exit 1"
   }
 }
