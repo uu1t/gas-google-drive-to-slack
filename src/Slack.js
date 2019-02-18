@@ -18,7 +18,7 @@ export default class Slack {
   /**
    * @param {{ name: string, updatedAt: Date, url: string}[]} events
    */
-  postEvents(events) {
+  postChanges(events) {
     if (events.length === 0) {
       return
     }

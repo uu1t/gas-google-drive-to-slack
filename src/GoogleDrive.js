@@ -9,7 +9,7 @@ export default class GoogleDrive {
   /**
    * @param {Date} since
    */
-  getEvents(since) {
+  getChanges(since) {
     const events = []
     const params = `modifiedDate >= "${since.toISOString()}"`
     const files = this.driveApp.searchFiles(params)
