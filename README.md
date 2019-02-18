@@ -2,6 +2,8 @@
 
 > Post Google Drive file changes to Slack on Google Apps Script
 
+![screenshot](./screenshot.png)
+
 ## Requirements
 
 - Slack incoming webhook
