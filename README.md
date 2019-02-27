@@ -1,5 +1,7 @@
 # gas-google-drive-to-slack
 
+[![Build Status](https://travis-ci.org/uu1t/gas-google-drive-to-slack.svg?branch=master)](https://travis-ci.org/uu1t/gas-google-drive-to-slack)
+
 > Post Google Drive file changes to Slack on Google Apps Script
 
 ![screenshot](./screenshot.png)
