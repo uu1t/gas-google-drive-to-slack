@@ -8,6 +8,7 @@ export default class GoogleDrive {
 
   /**
    * @param {Date} since
+   * @return {import('./types').Change[]}
    */
   getChanges(since) {
     const events = []
@@ -15,10 +16,13 @@ export default class GoogleDrive {
     const files = this.driveApp.searchFiles(params)
     while (files.hasNext()) {
       const file = files.next()
+      const createdAt = file.getDateCreated()
+      const type = createdAt >= since ? 'added' : 'updated'
       events.push({
         name: file.getName(),
-        updatedAt: file.getLastUpdated(),
-        url: file.getUrl()
+        url: file.getUrl(),
+        type,
+        date: type === 'added' ? createdAt : file.getLastUpdated()
       })
     }
     return events

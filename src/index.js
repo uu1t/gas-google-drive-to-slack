@@ -16,10 +16,10 @@ export function main() {
   const since = executedAt ? new Date(executedAt) : new Date(Date.now() - 1000 * 60 * 5)
 
   const googleDrive = new GoogleDrive()
-  const events = googleDrive.getChanges(since)
+  const changes = googleDrive.getChanges(since)
 
   const slack = new Slack(slackWebhookUrl)
-  slack.postChanges(events)
+  slack.postChanges(changes)
 
   store.set('executedAt', now.toISOString())
 }

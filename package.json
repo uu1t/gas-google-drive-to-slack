@@ -2,6 +2,17 @@
   "name": "gas-google-drive-to-slack",
   "version": "0.1.0",
   "author": "Yuichi Tanikawa <u1.tanikawa@gmail.com>",
+  "babel": {
+    "env": {
+      "test": {
+        "presets": [
+          [
+            "@babel/preset-env"
+          ]
+        ]
+      }
+    }
+  },
   "bugs": {
     "url": "https://github.com/uu1t/gas-google-drive-to-slack/issues"
   },
@@ -11,12 +22,20 @@
     "@babel/preset-env": "^7.3.1",
     "@google/clasp": "^2.0.1",
     "@types/google-apps-script": "0.0.37",
+    "babel-jest": "^24.1.0",
     "babel-loader": "^8.0.5",
+    "jest": "^24.1.0",
     "uglifyjs-webpack-plugin": "^2.1.1",
     "webpack": "^4.29.4",
     "webpack-cli": "^3.2.3"
   },
   "homepage": "https://github.com/uu1t/gas-google-drive-to-slack",
+  "jest": {
+    "testEnvironment": "node",
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    }
+  },
   "keywords": [],
   "license": "MIT",
   "main": "",
@@ -27,8 +46,8 @@
   },
   "scripts": {
     "build": "webpack",
-    "predeploy": "npm run build",
     "deploy": "clasp push",
-    "test": "exit 1"
+    "predeploy": "npm run build",
+    "test": "jest"
   }
 }

@@ -16,15 +16,12 @@ export default class Slack {
   }
 
   /**
-   * @param {{ name: string, updatedAt: Date, url: string}[]} events
+   * @param {import('./types').Change[]} changes
    */
-  postChanges(events) {
-    if (events.length === 0) {
+  postChanges(changes) {
+    if (changes.length === 0) {
       return
     }
-
-    const title = `${events.length} file(s) modified`
-    const value = this.formatMessage(events)
 
     const params = {
       method: 'post',
@@ -34,11 +31,10 @@ export default class Slack {
         icon_url,
         attachments: [
           {
-            fallback: title,
+            fallback: `${changes.length} file(s) modified`,
             fields: [
               {
-                title,
-                value,
+                value: changes.map(this.formatMessage, this).join('\n'),
                 short: false
               }
             ]
@@ -51,14 +47,10 @@ export default class Slack {
   }
 
   /**
-   * @param {{ name: string, updatedAt: Date, url: string}[]} events
+   * @param {import('./types').Change} change
    */
-  formatMessage(events) {
-    return events
-      .map(({ name, updatedAt, url }) => {
-        const time = this.utilities.formatDate(updatedAt, this.timeZone, 'HH:mm')
-        return `<${url}|${name}> @ ${time}`
-      })
-      .join('\n')
+  formatMessage({ name, url, type, date }) {
+    const time = this.utilities.formatDate(date, this.timeZone, 'HH:mm')
+    return `<${url}|${name}> ${type} at ${time}`
   }
 }
